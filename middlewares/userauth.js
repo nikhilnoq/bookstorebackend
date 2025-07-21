@@ -1,5 +1,5 @@
 const jwt=require("jsonwebtoken")
-const nodemailer = require("nodemailer");
+//const nodemailer = require("nodemailer");
 
 const auth=async(req,res,next)=>{
     try{
@@ -69,26 +69,26 @@ const isadmin=(req,res,next)=>{
 // utils/mailer.js
 //const nodemailer = require("nodemailer");
 
-const sendorderconfirmation = async (toEmail, orderDetails) => {
-    const transporter = nodemailer.createTransport({
-        secure:true,
-        service: "smtp.gmail.com",
-        auth: {
-            user: "nik229048@gmail.com",
-            pass: "your_email_password"
-        }
-    });
+// const sendorderconfirmation = async (toEmail, orderDetails) => {
+//     const transporter = nodemailer.createTransport({
+//         secure:true,
+//         service: "smtp.gmail.com",
+//         auth: {
+//             user: "nik229048@gmail.com",
+//             pass: "your_email_password"
+//         }
+//     });
 
-    const mailOptions = {
-        from: "nik229048@gmail.com",
-        to: toEmail,
-        subject: "Order Confirmation",
-        text: `Your order has been placed successfully.\nOrder Details: ${JSON.stringify(orderDetails)}`
-    };
+//     const mailOptions = {
+//         from: "nik229048@gmail.com",
+//         to: toEmail,
+//         subject: "Order Confirmation",
+//         text: `Your order has been placed successfully.\nOrder Details: ${JSON.stringify(orderDetails)}`
+//     };
 
-    await transporter.sendMail(mailOptions);
-};
+//     await transporter.sendMail(mailOptions);
+// };
 
 
 
-module.exports={auth,isadmin,sendorderconfirmation}
+module.exports={auth,isadmin}

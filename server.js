@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
-const nodemailer=require("nodemailer")
+//const nodemailer=require("nodemailer")
 const dbconnect=require("./dbconnection/dbcoonect")
 dbconnect();
 

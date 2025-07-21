@@ -6,7 +6,7 @@ const usermodel=require("../models/users")
 const bookmodel=require("../models/books")
 const ordermodel=require("../models/orders")
 const jwt=require("jsonwebtoken")
-const {sendorderconfirmation}=require("../middlewares/userauth")
+//const {sendorderconfirmation}=require("../middlewares/userauth")
 //console.log(sendOrderConfirmation());
 const signup=async(req,res)=>{
 
@@ -373,7 +373,7 @@ const deletebookcart=async(req,res)=>{
 
     }catch(err){
         return  res.status(500).json({
-            msg:"error in addbookfav catch",
+            msg:"error in removecart catch",
             success:false,
             error:err
         })
@@ -400,7 +400,7 @@ const getallcart=async(req,res)=>{
         })
     }catch(err){
         return  res.status(500).json({
-            msg:"error in addbookfav catch",
+            msg:"error in getallcart catch",
             success:false,
             error:err
         })
@@ -423,8 +423,8 @@ for(const orderdata of order){
     //saving order in user model
 
  // ✅ Fetch user's email
- const user = await usermodel.findById(id);
- await sendorderconfirmation(user.email, order);
+ //const user = await usermodel.findById(id);
+// await sendorderconfirmation(user.email, order);
 
 
 await usermodel.findByIdAndUpdate(id,{$push:{orders:orderdatafromdb._id}})
@@ -438,7 +438,7 @@ return  res.status(200).json({
 
 }catch(err){
     return  res.status(500).json({
-        msg:"error in addbookfav catch",
+        msg:"error in placeorder catch",
         success:false,
         error:err
     })
